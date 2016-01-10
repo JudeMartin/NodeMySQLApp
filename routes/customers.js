@@ -3,7 +3,15 @@
  */
 
 exports.list = function (req, res) {
-
+    req.getConnection(function (err, connection) {
+        connection.query('SELECT * FROM customer',function(err,rows){
+            if (err) {
+                console.log("Error Displaying the data : %s " + err);
+            } else {
+                res.render('customers',{page_title:"Customer - NodeJS",data:rows});
+            }
+        });
+    });
 }
 exports.add = function (req, res) {
 

@@ -26,12 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use(connection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'CrudNode'
-}, 'request'));
+app.use(connection(mysql, {host: 'localhost', user: 'root', password: 'root', database: 'CrudNode'}, 'request'));
 
 
 app.get('/customers', customers.list);

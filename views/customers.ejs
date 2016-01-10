@@ -1,0 +1,44 @@
+<%- include layouts/header.ejs %>
+
+<div class="table-responsive">
+    <div ALIGN="CENTER">
+        <table border="1" class="table table-hover" cellpadding="7" cellspacing="7">
+            <tr class="info">
+                <th width="50px">No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th width="150px">Action</th>
+            </tr>
+
+            <% if(data.length){
+
+            for(var i = 0;i < data.length;i++) { %>
+
+            <tr class="success">
+                <td><%= (i + 1) %></td>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].address %></td>
+                <td><%= data[i].phone %></td>
+                <td><%= data[i].email %></td>
+                <td>
+                    <a class="btn btn-warning btn-xs" role="button" href="../customers/edit/<%= data[i].id %>">Edit</a>
+                    <a class="btn btn-danger btn-xs" role="button"
+                       href="../customers/delete/<%= data[i].id %>">Delete</a>
+                    <button class="btn btn-success btn-xs" role="button" onClick="addUser();">Add</button>
+                </td>
+            </tr>
+            <% }
+
+            }else{ %>
+            <tr>
+                <td colspan="3">No user</td>
+            </tr>
+            <% } %>
+
+        </table>
+    </div>
+</div>
+
+
