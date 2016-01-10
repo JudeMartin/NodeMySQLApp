@@ -32,7 +32,7 @@ app.use(connection(mysql, {host: 'localhost', user: 'root', password: 'root', da
 app.get('/customers', customers.list);
 app.get('/customers/add', customers.add);
 app.get('/customers/add', customers.save);
-app.get('/customers/delete/:id', customers.delete_customer);
+app.get('/customers/delete/:id', customers.delete);
 app.get('customers/edit/:id', customers.edit);
 app.post('customers/edit/:id', customers.save_edit);
 

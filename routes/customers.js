@@ -4,24 +4,33 @@
 
 exports.list = function (req, res) {
     req.getConnection(function (err, connection) {
-        connection.query('SELECT * FROM customer',function(err,rows){
+        connection.query('SELECT * FROM customer', function (err, rows) {
             if (err) {
                 console.log("Error Displaying the data : %s " + err);
             } else {
-                res.render('customers',{page_title:"Customer - NodeJS",data:rows});
+                res.render('customers', {page_title: "Customer - NodeJS", data: rows});
             }
         });
     });
-}
+};
 exports.add = function (req, res) {
-
+    res.render('add_customers', {page_title: "Add Customers-Node.js"});
 }
 exports.save = function (req, res) {
 
 }
-exports.delete_customer = function (req, res) {
-
-}
+exports.delete = function (req, res) {
+    var id = req.params.id;
+    req.getConnection(function(err,connection){
+        connection.query("DELETE FROM customer WHERE id = ? ",[id], function (err,rows) {
+            if(err){
+                console.log("Error Deleting the Row with id: "+id);
+            }else{
+                res.redirect('/customers')
+            }
+        });
+    });
+};
 exports.edit = function (req, res) {
 
 }
