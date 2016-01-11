@@ -3,7 +3,7 @@
  */
 
 function addUser() {
-    alert("Hello");
+
     window.location.href = '/customers/add';
 }
 function cancelAdd() {

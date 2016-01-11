@@ -11,11 +11,8 @@
                 <th>Email</th>
                 <th width="150px">Action</th>
             </tr>
-
             <% if(data.length){
-
             for(var i = 0;i < data.length;i++) { %>
-
             <tr class="success">
                 <td><%= (i + 1) %></td>
                 <td><%= data[i].name %></td>
@@ -30,15 +27,11 @@
                 </td>
             </tr>
             <% }
-
             }else{ %>
             <tr>
                 <td colspan="3">No user</td>
             </tr>
             <% } %>
-
         </table>
     </div>
 </div>
-
-
